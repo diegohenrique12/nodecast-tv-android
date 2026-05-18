@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Declare as Android TV app -->
+    <uses-feature
+        android:name="android.software.leanback"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+
+        <!-- Setup / Login Screen -->
+        <activity
+            android:name=".ui.SetupActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:exported="true"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Main Browse Screen -->
+        <activity
+            android:name=".ui.BrowseActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:exported="false"
+            android:label="@string/app_name" />
+
+        <!-- Channel List Screen -->
+        <activity
+            android:name=".ui.ChannelListActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:exported="false" />
+
+        <!-- Series Detail -->
+        <activity
+            android:name=".ui.SeriesDetailActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:exported="false" />
+
+        <!-- Player -->
+        <activity
+            android:name=".ui.PlayerActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation|screenSize|screenLayout|smallestScreenSize|orientation"
+            android:exported="false"
+            android:screenOrientation="landscape"
+            android:theme="@style/PlayerTheme" />
+
+    </application>
+
+</manifest>
